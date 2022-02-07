@@ -46,7 +46,7 @@ Creating docker image:
 1. try to find a container which is as close to the container you want to create: 
 	- `docker run -it ubuntu` -> `apt update && apt upgrade`
 2. install packages you want:
-	- `apt install apache2 vim`
+	- `apt install apache2 nano`
 3. check status of installed packages/services and get them running:
 	- `/etc/init.d/apache2 status` -> `/etc/init.d/apache2 start`
 4. disconnect from container and keep the changes made:
@@ -63,7 +63,7 @@ Creating docker image:
 <br>
 
 Creating docker image from a docker file:
-1. create a docker file with `vim Dockerfile`:
+1. create a docker file with `nano Dockerfile`:
 ```docker
 FROM ubuntu
 MAINTAINER dev <dev@email.com>
@@ -75,7 +75,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update; apt dist-upgrade -y
 
 # install packages
-RUN apt install -y apache2 vim
+RUN apt install -y apache2 nano
 
 # set entrypoint 
 ENTRYPOINT apache2ctl -D FOREGROUND
