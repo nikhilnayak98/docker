@@ -1,6 +1,6 @@
 # Useful Docker Stuff
 
-Installation:
+### Installation:
 1. `sudo apt update && sudo apt upgrade` -- update system
 2. `sudo apt install docker.io` -- install docker
 3. `systemctl status docker` -- check status
@@ -12,7 +12,7 @@ Installation:
 
 <br>
 
-Running Containers:
+### Running Containers:
 - `docker images` -- check installed docker images 
 - `docker search ubuntu` -- search for the "ubuntu" docker image
 - `docker pull ubuntu` -- download the "ubuntu" docker image 
@@ -28,21 +28,21 @@ Running Containers:
 
 <br>
 
-Making containers persistent:
+### Making containers persistent:
 - `docker run -it -d ubuntu` -- creates an interactive terminal for the "ubuntu" docker image and runs it in deamon mode (`-d`), which runs it in the background
 - `docker ps` -> `docker attach <container_id>` -- attaches to the backgrounded docker image so you can interact with it (you don't have to type the whole container id, you can just type enough to distinguish it from the other containers)
 - whilst in a container press `<Ctrl-P> + <Ctrl-Q>` to background the container and keep it running
 
 <br>
 
-Accessing containerized apps:
+### Accessing containerized apps:
 > A docker entrypoint command (`/docker-entrypoint.sh`) is a command which runs automatically when a container starts. I will keep running and not return you back to your shell when you start a container (i.e. nginx)
 - `docker run -it -d -p 8080:80 nginx` -- runs the "nginx" container in daemon mode, creates an interactive terminal, and maps local port 8080 to port 80 on the container. You can then connect to local port 8080 to access port 80 on the container, or the IP address of the machine docker is running on and port 8080)
 - `docker run -it -d --restart unless-stopped -d 8080:80 nginx` -- same as before, but this time you can attach to the container, exit, and then the container will keep running. You have to explicitly stop the container to kill it. This is useful if you have a container which needs to be avaliable as it solves a purpose (i.e. serving a website).
 
 <br>
 
-Creating docker image:
+### Creating docker image:
 1. try to find a container which is as close to the container you want to create: 
 	- `docker run -it ubuntu` -> `apt update && apt upgrade`
 2. install packages you want:
@@ -62,7 +62,7 @@ Creating docker image:
 
 <br>
 
-Creating docker image from a docker file:
+### Creating docker image from a docker file:
 1. create a docker file with `nano Dockerfile`:
 ```docker
 FROM ubuntu
@@ -86,7 +86,7 @@ ENTRYPOINT apache2ctl -D FOREGROUND
 
 <br>
 
-Removing docker images
+### Removing docker images:
 1. remove docker containers associated with image:
 	- `docker ps -a` 
 	- `docker rm <container_id>`
