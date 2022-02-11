@@ -1,19 +1,18 @@
 # Useful Docker Stuff
 
 ### Installation:
-1. `sudo apt update && sudo apt upgrade` -- update system
-2. `sudo apt install docker.io` -- install docker
-3. `systemctl status docker` -- check status
-4. `sudo systemctl enable docker` -- if not enabled then enable so it starts on boot
-5. `sudo systemctl start docker` -- if not started then start service
-6. `sudo docker run hello-world` -- test to see if the default docker container works
-7. `sudo usermod -aG docker $USER` -- add current user to docker group (so you don't need Sudo)
-8. reboot machine and run `docker run hello-world` 
+1. `sudo apt install docker.io` -- install docker
+2. `systemctl status docker` -- check status
+3. `sudo systemctl enable docker` -- if not enabled then enable so it starts on boot
+4. `sudo systemctl start docker` -- if not started then start service
+5. `sudo docker run hello-world` -- test to see if the default docker container works
+6. `sudo usermod -aG docker $USER` -- add current user to docker group (so you don't need Sudo)
+7. reboot machine and run `docker run hello-world` 
 
 <br>
 
 ### Running Containers:
-- `docker images` -- check installed docker images 
+- `docker images` -- check installed docker images
 - `docker search ubuntu` -- search for the "ubuntu" docker image
 - `docker pull ubuntu` -- download the "ubuntu" docker image 
 - `docker run ubuntu` -- create a container for "ubuntu" docker image (if a container has no jobs/automatic services then the container will exit immeditately) 
